@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     /* Ambiente e módulos */
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
 
     /* Estrutura do projeto */
     "rootDir": "src",
@@ -27,7 +27,8 @@
     "skipLibCheck": true,
 
     /* Tipagens */
-    "types": ["node"]
+    "types": ["node"],
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
 
   "include": ["src"],
