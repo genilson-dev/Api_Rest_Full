@@ -1,9 +1,30 @@
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
+  // url = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+
+  books Book[]
+
+  @@map("users")
+}
+
+model Book {
+  id     String   @id @default(uuid())
+  title  String
+  author String
+  year   DateTime
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+
+  @@map("books")
 }
