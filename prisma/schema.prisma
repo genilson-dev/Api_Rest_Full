@@ -1,6 +1,6 @@
 datasource db {
   provider = "mysql"
-  // url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -9,22 +9,27 @@ generator client {
 
 
 model User {
-  id       String @id @default(uuid())
-  email    String @unique
-  password String
-
-  books Book[]
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  books      Book[]
 
   @@map("users")
 }
 
 model Book {
-  id     String   @id @default(uuid())
-  title  String
-  author String
-  year   DateTime
-  userId String
-  user   User     @relation(fields: [userId], references: [id])
+  id         String   @id @default(uuid())
+  title      String
+  author     String
+  year       Int
+  userId     String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id])
 
+  @@index([userId], map: "books_userId_fkey")
   @@map("books")
 }

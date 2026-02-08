@@ -1,13 +1,18 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import router from "./routes/auth.routes.js";
+// import { bankPrisma } from "./prisma/index.js";
+
+// const users = await bankPrisma.user.findMany()
+// console.log(users)
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-const PORT = Number(process.env.PORT) || 1001;
+app.use(router)
+const PORT = Number(process.env.PORT) || 3001;
 
 
 

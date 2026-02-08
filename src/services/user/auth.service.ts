@@ -2,7 +2,7 @@
 import { bankPrisma } from "../../prisma/index.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-const {sign} = jwt;
+// const {sign} = jwt;
 // const prisma = new bankPrisma()
 
 export async function registerService(email: string, password: string){

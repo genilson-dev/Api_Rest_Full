@@ -1,5 +1,6 @@
 import { bankPrisma } from "../../prisma/index.js";
-export function createBook(userId: string, data: any) {
+
+export function createBookService(userId: string, data: any) {
     return bankPrisma.book.create({
         data: { ...data, userId }
     })

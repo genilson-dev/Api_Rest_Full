@@ -33,3 +33,6 @@ Categoria	Comando
 Produção	npm install express cors dotenv bcryptjs jsonwebtoken mysql mysql2
 Tipagens	npm install @types/...
 Dev	npm install -D typescript tsx ts-node ts-node-dev prisma @types/express
+
+# npx @dotenvx/dotenvx run -- npx prisma migrate reset
+
